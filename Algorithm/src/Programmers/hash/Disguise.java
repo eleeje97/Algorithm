@@ -1,5 +1,5 @@
 /**
- * À§Àå
+ * ìœ„ìž¥
  **/
 package Programmers.hash;
 
