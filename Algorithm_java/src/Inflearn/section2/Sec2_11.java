@@ -19,11 +19,31 @@ public class Sec2_11 {
 
     public static int solution(int num, int[][] students) {
         int answer = 0;
+        boolean[][] check = new boolean[num][num];
 
-        for (int i = 0; i < 5; i++) {
-
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < num; k++) {
+                    if (students[i][j] == students[k][j]) {
+                        check[i][k] = true;
+                    }
+                }
+            }
         }
 
-        return answer;
+        int[] count = new int[num];
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
+                if (check[i][j]) count[i]++;
+            }
+        }
+
+        for (int i = 0; i < num; i++) {
+            if (count[answer] < count[i]) {
+                answer = i;
+            }
+        }
+
+        return answer+1;
     }
 }
