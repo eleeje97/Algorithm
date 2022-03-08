@@ -1,8 +1,8 @@
 N, Q = map(int, input().split())
 
-score = []
+scores = []
 for i in range(N):
-    score.append(int(input()))
+    scores.append(int(input()))
 
 for i in range(Q):
     answer = 0
@@ -10,6 +10,6 @@ for i in range(Q):
     q = int(input())
     while time <= q:
         answer += 1
-        time += score[answer-1]
+        time += scores[answer-1]
 
     print(answer)
