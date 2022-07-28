@@ -1,6 +1,6 @@
 def solution(n, lost, reserve):
     lost.sort()
-    reserve.sort()
+    # reserve.sort()
 
     for i in lost.copy():
         if i in reserve:
@@ -18,6 +18,28 @@ def solution(n, lost, reserve):
             reserve.remove(i+1)
     return answer
 
+#
+# def solution(n, lost, reserve):
+#     answer = 0
+#     for i in lost.copy():
+#         if i in reserve:
+#             reserve.remove(i)
+#             lost.remove(i)
+#
+#     for i in range(n):
+#         if i+1 not in lost:
+#             answer += 1
+#         elif i in reserve:
+#             answer += 1
+#             reserve.remove(i)
+#         elif i+2 in reserve:
+#             answer +=1
+#             reserve.remove(i+2)
+#         else:
+#             pass
+#
+#     return answer
+#
 
 # n = 5
 # lost = [2, 4]
@@ -42,3 +64,7 @@ print(solution(n, lost, reserve))
 # print(solution(5, [1,2],[2,3]))
 # print(solution(5, [4,2], [1,3]))
 # print(solution(5, [4,2], [3]))
+# print(solution(5, [2,4], [3,1]))
+# print(solution(5, [4,2], [3,1]))
+
+# print(solution(9, [7,2,4,6], [3,5,1,9]))
