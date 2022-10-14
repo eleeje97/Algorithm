@@ -25,9 +25,7 @@ def bfs(maps):
         col = p[1]
         depth = p[2]
 
-        print(row, col, depth)
         if row == len(maps) - 1 and col == len(maps[0]) - 1:
-            # queue.clear()
             return depth
 
         visited[row][col] = 1
@@ -37,7 +35,6 @@ def bfs(maps):
 
             if 0 <= nr < len(maps) and 0 <= nc < len(maps[0]) and visited[nr][nc] == 0 and maps[nr][nc] == 1:
                 queue.append([nr, nc, depth+1])
-                # visited[nr][nc] = 0
 
     return -1
 
@@ -57,9 +54,7 @@ def bfs(maps):
         col = p[1]
         depth = p[2]
 
-        print(row, col, depth)
         if row == len(maps) - 1 and col == len(maps[0]) - 1:
-            # queue.clear()
             return depth
 
         for i in range(4):
@@ -75,7 +70,7 @@ def bfs(maps):
 
 
 def bfs(maps):
-    global dx, dy, visited
+    global dx, dy
     queue = deque()
     queue.append([0, 0])
 
@@ -84,16 +79,14 @@ def bfs(maps):
         row = p[0]
         col = p[1]
 
-        print(row, col, maps[row][col])
         if row == len(maps) - 1 and col == len(maps[0]) - 1:
             return maps[row][col]
 
-        visited[row][col] = 1
         for i in range(4):
             nr = row + dy[i]
             nc = col + dx[i]
 
-            if 0 <= nr < len(maps) and 0 <= nc < len(maps[0]) and visited[nr][nc] == 0 and maps[nr][nc] == 1:
+            if 0 <= nr < len(maps) and 0 <= nc < len(maps[0]) and maps[nr][nc] == 1:
                 queue.append([nr, nc])
                 maps[nr][nc] = maps[row][col] + 1
 
