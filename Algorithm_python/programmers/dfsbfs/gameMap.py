@@ -44,6 +44,36 @@ def bfs(maps):
 '''
 
 
+''' 시간초과 해결
+def bfs(maps):
+    global dx, dy, visited
+    queue = deque()
+    queue.append([0, 0, 1])
+    visited[0][0] = 1
+
+    while queue:
+        p = queue.popleft()
+        row = p[0]
+        col = p[1]
+        depth = p[2]
+
+        print(row, col, depth)
+        if row == len(maps) - 1 and col == len(maps[0]) - 1:
+            # queue.clear()
+            return depth
+
+        for i in range(4):
+            nr = row + dy[i]
+            nc = col + dx[i]
+
+            if 0 <= nr < len(maps) and 0 <= nc < len(maps[0]) and visited[nr][nc] == 0 and maps[nr][nc] == 1:
+                queue.append([nr, nc, depth+1])
+                visited[nr][nc] = 1
+
+    return -1
+'''
+
+
 def bfs(maps):
     global dx, dy, visited
     queue = deque()
@@ -72,3 +102,4 @@ def bfs(maps):
 
 print(solution([[1, 0, 1, 1, 1], [1, 0, 1, 0, 1], [1, 0, 1, 1, 1], [1, 1, 1, 0, 1], [0, 0, 0, 0, 1]]))
 print(solution([[1, 0, 1, 1, 1], [1, 0, 1, 0, 1], [1, 0, 1, 1, 1], [1, 1, 1, 0, 0], [0, 0, 0, 0, 1]]))
+print(solution([[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1],[1,1,1,1,1]]))
